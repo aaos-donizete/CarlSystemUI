@@ -1,0 +1,8 @@
+android_app {
+    name: "CarlSystemUI",
+
+    platform_apis: true,
+    system_ext_specific: true,
+    certificate: "platform",
+    privileged: true,
+}
