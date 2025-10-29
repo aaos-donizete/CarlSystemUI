@@ -1,8 +1,56 @@
 android_app {
     name: "CarlSystemUI",
 
+    defaults: [
+        "wmshell_defaults",
+    ],
+
+    static_libs: [
+        "CarSystemUI-core",
+    ],
+
+    export_package_resources: true,
+
+    libs: [
+        "android.car",
+    ],
+
+    resource_dirs: [],
+
+    overrides: [
+        "CarSystemUI",
+    ],
+
     platform_apis: true,
     system_ext_specific: true,
     certificate: "platform",
     privileged: true,
+
+    optimize: {
+        proguard_flags_files: [
+            "proguard.flags",
+        ],
+    },
+    // TODO(b/301283770): Compiling CarSystemUI should not require -J-Xmx8192M
+    javacflags: [
+        "-J-Xmx8192M",
+    ],
+    dxflags: ["--multi-dex"],
+
+    aaptflags: [
+        "--extra-packages",
+        "com.android.keyguard",
+    ],
+
+    kotlincflags: ["-Xjvm-default=all"],
+
+    plugins: ["dagger2-compiler"],
+
+    required: [
+        "privapp_whitelist_com.android.systemui",
+        "allowed_privapp_com.android.carsystemui",
+    ],
+
+    // TODO(b/319708040): re-enable use_resource_processor
+    use_resource_processor: false,
 }
