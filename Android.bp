@@ -1,6 +1,10 @@
 android_app {
     name: "CarlSystemUI",
 
+    srcs: [
+        "src/**/*.kt"
+    ],
+
     defaults: [
         "wmshell_defaults",
     ],
