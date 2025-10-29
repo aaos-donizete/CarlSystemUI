@@ -1,0 +1,1 @@
+![Carlton "Carl" Ulysses Wheezer](/res/drawable/carl.gif)
